@@ -1,0 +1,10 @@
+# Ignora archivos del sistema Mac 
+.DS_store
+# Ignora la carpeta node_modules
+node_modules
+# Ignora la carpeta request
+request
+# Ignora los archivos relacionados a API keys
+.env
+# Ignora los archivos de babel
+.babelrc
