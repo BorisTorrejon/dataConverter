@@ -24,7 +24,6 @@ export const create = (req, res) => {
     //array
     var items = req.body.items;
     var columns= Object.getOwnPropertyNames(items[0]);
-    console.log(columns);
     for (let cIndex = 0; cIndex < columns.length; cIndex++) {
       ws.cell(1, cIndex+1).string(columns[cIndex]).style(greenS);
     }
@@ -40,7 +39,8 @@ export const create = (req, res) => {
     ws.column(2).setWidth(10);
   
     console.log("->Excel generado!!!");
-    const pathExcel = path.join("./src/public", "archives", "boris.xlsx");
+    var title = req.body.title+'.xlsx' || 'file.xlsx';
+    const pathExcel = path.join("./src/public", "archives", title);
   
     wb.write(pathExcel, function (err, stats) {
       if (err) {
